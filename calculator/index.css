@@ -1,0 +1,128 @@
+/* Basic reset and font settings */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Calculator container */
+.calculator {
+    background-color: #000;
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    padding: 20px;
+}
+
+/* Display section */
+.display {
+    background-color: #000;
+    color: white;
+    grid-column: 1 / -1;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    height: 25px;
+    min-height: 25px;
+    width: 100%;
+    text-align: right;
+}
+
+.current-operand {
+    color: white;
+    font-size: 3.5rem;
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Button base styling */
+.calculator button {
+    cursor: pointer;
+    font-size: 1.8rem;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.1s;
+}
+
+.calculator button:active {
+    filter: brightness(130%);
+}
+
+/* Specific button types */
+.clear, .delete {
+    background-color: #A5A5A5;
+    color: black;
+}
+
+.number {
+    background-color: #333333;
+    color: white;
+}
+
+.operator {
+    background-color: #FF9F0A;
+    color: white;
+}
+
+.equals {
+    background-color: #FF9F0A;
+    color: white;
+}
+
+/* Special button - zero */
+.span-two {
+    grid-column: span 2;
+    width: 152px !important;
+    border-radius: 35px !important;
+    justify-content: flex-start !important;
+    padding-left: 25px !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 400px) {
+    .calculator {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .calculator button {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .span-two {
+        width: 140px !important;
+    }
+}
